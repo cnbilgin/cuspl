@@ -1,0 +1,57 @@
+@font-face {
+  font-family: 'cuspl';
+  src:  url('fonts/cuspl.eot?la4gef');
+  src:  url('fonts/cuspl.eot?la4gef#iefix') format('embedded-opentype'),
+    url('fonts/cuspl.ttf?la4gef') format('truetype'),
+    url('fonts/cuspl.woff?la4gef') format('woff'),
+    url('fonts/cuspl.svg?la4gef#cuspl') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="cuspl-icon-"], [class*=" cuspl-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'cuspl' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cuspl-icon-play:before {
+  content: "\e900";
+}
+.cuspl-icon-settings:before {
+  content: "\e909";
+}
+.cuspl-icon-backward:before {
+  content: "\e901";
+}
+.cuspl-icon-forward:before {
+  content: "\e902";
+}
+.cuspl-icon-next:before {
+  content: "\e903";
+}
+.cuspl-icon-pause:before {
+  content: "\e904";
+}
+.cuspl-icon-prev:before {
+  content: "\e905";
+}
+.cuspl-icon-speed:before {
+  content: "\e906";
+}
+.cuspl-icon-zoom-out:before {
+  content: "\e907";
+}
+.cuspl-icon-zoom:before {
+  content: "\e908";
+}

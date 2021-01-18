@@ -1,0 +1,390 @@
+/* cnbilgin 
+   https://github.com/cnbilgin/cuspl
+*/
+
+.cuspl {
+   --cuspl-primary-color: #ffbf00;
+   font-size: 10px;
+}
+
+.cuspl .cuspl-player {
+   width: 100%;
+   height: 100%;
+}
+/* media panel - start */
+.cuspl .cuspl-media-element {
+}
+.cuspl .cuspl-media-element > .cuspl-media-element-button {
+   height: 100%;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+}
+.cuspl .cuspl-media-element > .cuspl-media-panel {
+   display: none;
+   position: absolute;
+   bottom: calc(100% + 10px);
+   background-color: rgba(0, 0, 0, 0.5);
+   display: none;
+}
+
+.cuspl .cuspl-media-element > .cuspl-media-panel.cuspl-media-panel-show {
+   display: block;
+   animation: cuspl-animation-fadeIn 200ms;
+}
+
+.cuspl .cuspl-media-element > .cuspl-media-panel > .cuspl-media-panel-item {
+   padding: 5px 10px;
+   color: inherit;
+}
+.cuspl
+   .cuspl-media-element
+   > .cuspl-media-panel
+   > .cuspl-media-panel-item:hover {
+   background-color: #000;
+}
+.cuspl
+   .cuspl-media-element
+   > .cuspl-media-panel
+   > .cuspl-media-panel-item.cuspl-media-panel-item-selected {
+   color: var(--cuspl-primary-color);
+   background-color: #fff;
+   font-weight: bold;
+}
+.cuspl
+   .cuspl-alternative-selection
+   > .cuspl-alternative-selection-button
+   > .alt-text {
+}
+.cuspl
+   .cuspl-alternative-selection
+   > .cuspl-alternative-selection-button
+   > .alt-icon {
+   margin-left: 5px;
+   font-family: "cuspl";
+   font-size: 16px;
+}
+
+.cuspl
+   .cuspl-alternative-selection
+   > .cuspl-alternative-selection-button
+   > .alt-icon::before {
+   content: "\e909";
+}
+/* media panel - end */
+
+/* watermark plugin - start */
+.cuspl .cuspl-plugin-watermark {
+   --watermark-showing-opacity: 0.3;
+   --watermark-font-size: 16px;
+}
+.cuspl .cuspl-plugin-watermark {
+   position: absolute;
+   pointer-events: none;
+   color: #fff;
+   display: inline-flex;
+   font-size: var(--watermark-font-size);
+   opacity: var(--watermark-showing-opacity);
+   top: 0;
+   left: 0;
+   text-shadow: 0 0 5px rgba(0, 0, 0, 1);
+}
+
+.cuspl .cuspl-plugin-watermark.showing {
+   position: absolute;
+   pointer-events: none;
+   color: #fff;
+   display: inline-flex;
+   font-size: 14px;
+   opacity: var(--watermark-showing-opacity);
+   top: 0;
+   left: 0;
+}
+
+@keyframes watermark-fadeIn {
+   0% {
+      opacity: 0;
+   }
+   100% {
+      opacity: var(--watermark-showing-opacity);
+   }
+}
+.cuspl .cuspl-plugin-watermark.watermark-fadeIn {
+   animation: watermark-fadeIn 300ms ease-in;
+   animation-fill-mode: forwards;
+}
+
+@keyframes watermark-fadeOut {
+   0% {
+      opacity: var(--watermark-showing-opacity);
+   }
+   100% {
+      opacity: 0;
+   }
+}
+.cuspl .cuspl-plugin-watermark.watermark-fadeOut {
+   animation: watermark-fadeOut 300ms ease-out;
+   animation-fill-mode: forwards;
+}
+
+/* watermark plugin - end */
+
+/* alternative selector plugin - start */
+.cuspl .cuspl-alternative-selection {
+   position: relative;
+}
+/* alternative selector plugin - end */
+
+/* skipIntro plugin - start */
+
+.cuspl .cuspl-skipIntro-button {
+   position: absolute;
+   display: block;
+   right: 20px;
+   bottom: 20px;
+   z-index: 11;
+   justify-content: center;
+   transition: all linear 0.3s;
+   max-height: 0;
+   overflow: hidden;
+   border: 2px solid #fff;
+   box-sizing: border-box;
+   opacity: 0;
+   pointer-events: none;
+   cursor: pointer;
+}
+.cuspl .cuspl-skipIntro-button > span {
+   font-weight: bold;
+   color: #fff;
+   padding: 15px 25px;
+   display: inline-flex;
+   transition: all ease-in-out 200ms;
+}
+.cuspl .cuspl-skipIntro-button:hover > span {
+   background-color: #fff;
+   color: #000;
+}
+.cuspl .cuspl-skipIntro-button.cuspl-skipIntro-button-show {
+   max-height: 60px;
+   opacity: 1;
+   animation: ease-in-out 300ms cuspl-skipIntro-in;
+   pointer-events: unset;
+}
+
+@keyframes cuspl-skipIntro-in {
+   0% {
+      opacity: 0;
+   }
+   30% {
+      opacity: 1;
+   }
+   100% {
+      opacity: 1;
+   }
+}
+/* skipIntro plugin - end */
+/* big media buttons plugin - start */
+.cuspl .cuspl-big-media-buttons {
+   position: absolute;
+   z-index: 10;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   pointer-events: none;
+   transition: background-color ease-in-out 300ms;
+}
+
+.cuspl .cuspl-big-media-buttons > .cuspl-bmb-item {
+   position: absolute;
+   font-size: 1.2em;
+   top: 50%;
+   transform: translateY(-50%);
+   padding: 0 2.5%;
+   width: 12.5%;
+   text-align: center;
+   font-family: "Arial", sans-serif;
+   -webkit-font-smoothing: antialiased;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   pointer-events: none;
+   cursor: pointer;
+   opacity: 0;
+   transition: color ease-in-out 300ms;
+   height: 50%;
+}
+.cuspl .cuspl-big-media-buttons > .cuspl-bmb-item:hover {
+   color: var(--cuspl-primary-color);
+}
+
+.cuspl .cuspl-big-media-buttons > .cuspl-bmb-item.cuspl-bmb-playPause {
+   pointer-events: all;
+   opacity: 1;
+}
+
+.cuspl .cuspl-big-media-buttons.cuspl-big-media-buttons-active {
+}
+.cuspl
+   .cuspl-big-media-buttons.cuspl-big-media-buttons-active
+   > .cuspl-bmb-item {
+   animation: cuspl-animation-fadeIn ease-in-out 300ms;
+   animation-fill-mode: forwards;
+   pointer-events: all;
+   text-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+   -webkit-text-stroke: #000;
+}
+
+.cuspl
+   .cuspl-big-media-buttons.cuspl-big-media-buttons-inactive
+   > .cuspl-bmb-item {
+   animation: cuspl-animation-fadeOut ease-in-out 300ms;
+   animation-fill-mode: forwards;
+   pointer-events: none;
+}
+
+.cuspl .cuspl-big-media-buttons > .cuspl-bmb-item::before {
+   font-family: "cuspl" !important;
+}
+
+.cuspl .cuspl-big-media-buttons > .cuspl-bmb-previous {
+   left: 0;
+   font-size: 2.8em;
+   height: 20%;
+}
+.cuspl .cuspl-big-media-buttons > .cuspl-bmb-previous::before {
+   content: "\e905";
+}
+.cuspl .cuspl-big-media-buttons > .cuspl-bmb-next {
+   right: 0;
+   font-size: 2.8em;
+   height: 20%;
+}
+.cuspl .cuspl-big-media-buttons > .cuspl-bmb-next::before {
+   content: "\e903";
+}
+.cuspl .cuspl-big-media-buttons > .cuspl-bmb-fast-backward {
+   left: 25%;
+   height: 25%;
+}
+
+.cuspl .cuspl-big-media-buttons > .cuspl-bmb-fast-backward::before {
+   content: "\e901";
+}
+
+.cuspl .cuspl-big-media-buttons > .cuspl-bmb-fast-forward {
+   right: 25%;
+   height: 25%;
+}
+.cuspl .cuspl-big-media-buttons > .cuspl-bmb-fast-forward::before {
+   content: "\e902";
+}
+
+.cuspl .cuspl-big-media-buttons > .cuspl-bmb-fast-backward::before,
+.cuspl .cuspl-big-media-buttons > .cuspl-bmb-fast-forward::before {
+   font-size: 4.8em;
+   position: absolute;
+   left: 0;
+   right: 0;
+   text-align: center;
+   width: 50px;
+   height: 55px;
+   transform-origin: 25px 32px;
+   margin: auto;
+}
+.cuspl .cuspl-big-media-buttons > .cuspl-bmb-fast-backward > span,
+.cuspl .cuspl-big-media-buttons > .cuspl-bmb-fast-forward > span {
+   position: relative;
+   top: 5px;
+   font-size: 1.6em;
+   font-weight: bold;
+}
+
+.cuspl .cuspl-big-media-buttons > .cuspl-bmb-playPause {
+   left: 40%;
+   width: 20%;
+   font-size: 8em;
+}
+
+.cuspl .cuspl-big-media-buttons > .cuspl-bmb-playPause::before {
+   content: "\e900";
+}
+
+.cuspl
+   .cuspl-big-media-buttons
+   > .cuspl-bmb-playPause.cuspl-bmb-playPause-paused::before {
+   content: "\e900";
+}
+
+.cuspl
+   .cuspl-big-media-buttons
+   > .cuspl-bmb-playPause.cuspl-bmb-playPause-playing::before {
+   content: "\e904";
+}
+
+.cuspl
+   .cuspl-big-media-buttons
+   > .cuspl-bmb-fast-forward.cuspl-bmb-ff-animate::before {
+   animation: cuspl-bmb-fastForward ease-in-out 0.8s;
+}
+.cuspl
+   .cuspl-big-media-buttons
+   > .cuspl-bmb-fast-backward.cuspl-bmb-fb-animate::before {
+   animation: cuspl-bmb-fastBackward ease-in-out 0.8s;
+}
+
+@keyframes cuspl-bmb-fastForward {
+   0% {
+      transform: rotate(0deg);
+   }
+   40% {
+      transform: rotate(140deg);
+   }
+   100% {
+      transform: rotate(0deg);
+   }
+}
+
+@keyframes cuspl-bmb-fastBackward {
+   0% {
+      transform: rotate(0deg);
+   }
+   40% {
+      transform: rotate(-140deg);
+   }
+   100% {
+      transform: rotate(0deg);
+   }
+}
+/* big media buttons plugin - end */
+
+@keyframes cuspl-animation-fadeIn {
+   0% {
+      opacity: 0;
+   }
+   100% {
+      opacity: 1;
+   }
+}
+
+@keyframes cuspl-animation-fadeOut {
+   0% {
+      opacity: 1;
+   }
+   100% {
+      opacity: 0;
+   }
+}
+
+.cuspl .cuspl-custom-screen {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   pointer-events: none;
+   z-index: 11;
+}

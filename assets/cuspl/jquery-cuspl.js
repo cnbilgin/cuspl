@@ -517,9 +517,10 @@
          const globalStore = store.getGlobal();
 
          return {
-            muted: globalStore.muted ? globalStore.muted : null,
-            volume: globalStore.volume ? globalStore.volume : null,
-            playbackRate: globalStore.volume ? globalStore.playbackRate : null,
+            muted: globalStore.muted != null ? globalStore.muted : null,
+            volume: globalStore.volume != null ? globalStore.volume : null,
+            playbackRate:
+               globalStore.volume != null ? globalStore.playbackRate : null,
          };
       };
       /* preferences functions - end */

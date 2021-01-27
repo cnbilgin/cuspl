@@ -89,14 +89,14 @@
             else return {};
          },
          saveGlobal: function (key, value) {
-            let store = localStorage.getItem(this.key);
+            let store = localStorage.getItem(this.globalKey);
             store = JSON.parse(store);
 
             store[key] = value;
-            localStorage.setItem(this.key, JSON.stringify(store));
+            localStorage.setItem(this.globalKey, JSON.stringify(store));
          },
          getGlobal: function (key = undefined) {
-            let store = localStorage.getItem(this.key);
+            let store = localStorage.getItem(this.globalKey);
             store = JSON.parse(store);
 
             if (key) return store[key];

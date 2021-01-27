@@ -517,9 +517,9 @@
          const globalStore = store.getGlobal();
 
          return {
-            muted: globalStore.muted,
-            volume: globalStore.volume,
-            playbackRate: globalStore.playbackRate,
+            muted: globalStore.muted ? globalStore.muted : null,
+            volume: globalStore.volume ? globalStore.volume : null,
+            playbackRate: globalStore.volume ? globalStore.playbackRate : null,
          };
       };
       /* preferences functions - end */

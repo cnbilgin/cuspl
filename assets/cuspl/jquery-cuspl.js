@@ -45,8 +45,8 @@
       const store = {
          globalKey: "cusplv1-data-global",
          key: "cusplv1-data",
-         globalVersion: 1,
-         version: 1,
+         globalVersion: 1.01,
+         version: 1.01,
          initializeMainStore: function () {
             const globalDefault = { version: this.globalVersion };
             let globalStore = localStorage.getItem(this.globalKey);
@@ -511,6 +511,18 @@
          return Player.getViewPanel();
       };
       /* media functions - end */
+
+      /* preferences functions - start */
+      plugin.getPreferences = function () {
+         const globalStore = store.getGlobal();
+
+         return {
+            muted: globalStore.muted,
+            volume: globalStore.volume,
+            playbackRate: globalStore.playbackRate,
+         };
+      };
+      /* preferences functions - end */
 
       /* player plugins - start */
       const watermark = {
